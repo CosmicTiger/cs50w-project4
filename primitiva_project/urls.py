@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
+    path('', include('blog.urls', namespace='blog')),
+    # path('dashboard/ecosystem-and-subjects', include('primitiva_ecosystem.urls', namespace='primitiva_ecosystem')),
+    # path('dashboard/staff', include('primitiva_staff.urls', namespace='primitiva_staff')),
+    # path('/dashboard/research', include('research.urls', namespace='dashboard')),
+    path('/authentication', include('users.urls', namespace='authentication')),
     path('admin/', admin.site.urls),
 ]
