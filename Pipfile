@@ -16,6 +16,7 @@ django-bootstrap-v5 = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 dj-database-url = "*"
+django-formtools = "*"
 
 [dev-packages]
 

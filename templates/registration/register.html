@@ -1,0 +1,32 @@
+{% extends "base/authentication_layout.html" %}
+{% load i18n %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock head_css %}
+
+{% block title %} Register {% endblock title %}
+
+{% block content %}
+<main class="container LoginMain text-center">
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img class="mb-4" src="{% static 'img/primitiva-logo.png' %}" alt="Primitiva Logo" width="230" height="220" />
+        <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+
+        <div class="LoginMain-formGroup row">
+            <div class="col-6">
+                {% bootstrap_form form_one %}
+            </div>
+            <div class="col-6">
+                {% bootstrap_form form_two %}
+            </div>
+            <input type="submit" value="Register" class="btn btn-primary" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+    </form>
+</main>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base/authentication_layout.html" %}
+{% load i18n %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock head_css %}
+
+{% block title %} Register {% endblock title %}
+
+{% block content %}
+<main class="container LoginMain text-center">
+    {{ form_data }}
+</main>
+{% endblock content %}

@@ -1,0 +1,62 @@
+body {
+    align-items: center;
+    background-image: url('../img/Bolitoglossa-mombachoensis-background.jpg');
+    display: flex;
+}
+
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.LoginMain {
+    align-items: center;
+    background-color: #f5f5f5;
+    display: flex;
+    margin-top: 43px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.LoginMain form {
+    width: 100%;
+}
+
+.LoginMain .checkbox {
+    font-weight: 400;
+}
+
+.LoginMain .LoginMain-formGroup {
+    height: 100%;
+    margin: auto;
+    width: 70%;
+}
+
+.LoginMain .form-floating {
+    margin-bottom: 20px;
+}
+
+.LoginMain .form-floating:focus-within {
+    z-index: 2;
+}
+
+.LoginMain input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.LoginMain input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

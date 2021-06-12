@@ -1,8 +1,9 @@
 from django.urls import path
-from . import views
 
-app_name = 'primitiva_staff'
+from .views import StaffDashboardView
+
+app_name = 'staff'
 
 urlpatterns = [
-    path('', views.index, name='staff_home')
+    path('staff/', StaffDashboardView.as_view(), name='staff_home'),
 ]

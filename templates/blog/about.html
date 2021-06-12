@@ -1,0 +1,37 @@
+{% extends "base/blog_layout.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/blog-about.css' %}">
+{% endblock head_css %}
+
+{% block title %} Nosotros {% endblock title %}
+
+{% block content %}
+<main class="About">
+    <div class="About-introduction">
+        <div class="px-4 py-5 my-5 text-center About-introduction message">
+            <img class="mb-4" src="{% static 'img/primitiva-logo.png' %}" alt="Primitiva Logo" width="180"
+                height="150" />
+            <h1 class="display-5 fw-bold">¿Qué es Primitiva Project?</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    Primitiva Project es una alternativa para poder ayudar a investigadores, veterinarios,
+                    botánicos, biológos o ecologistas a preservar y conservar nuestras especies animales a lo largo del
+                    mundo a través de los medios tecnológicos a disposición con la finalidad de hacer estudios más
+                    normalizados y regulados de nuestros ejemplares tanto en especies vegetal como animal.
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="/accounts/register" class="btn btn-outline-secondary btn-lg px-4">¿Cómo puedo formar
+                        parte?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="About-body">
+
+    </div>
+</main>
+
+{% endblock content %}

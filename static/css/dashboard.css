@@ -1,0 +1,23 @@
+
+.PrimitivaApp {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 99.6vh;
+    width: 100%;
+}
+
+.PrimitivaContent {
+    background-image: url('../img/background-dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 99.6vh;
+    width: 100%;
+}
+
+.Dashboard {
+    height: 100%;
+}

@@ -22,6 +22,14 @@ class TaxonomicGroup(models.Model):
     cientific_name = models.CharField(max_length=150, blank=False)
     status = models.IntegerField(choices=TaxonomicStatus.choices)
 
+    def __str__(self):
+        return f"Family: {self.family} - Common Name: {self.common_name} - Cientific Name: {self.cientific_name} - Status: {self.status}"
+
+    class Meta:
+        # db_table = 'taxonomic_groups'
+        verbose_name = 'Taxonomic Group'
+        verbose_name_plural = 'Taxonomic Groups'
+
 class Sex(models.IntegerChoices):
     MALE = 1, 'M - Male subject'
     FEMALE = 2, 'F - Female subject'
@@ -38,15 +46,24 @@ class AnimaliaStatus(models.IntegerChoices):
 
 class Animalia(DateRegister):
     animalia_code = models.CharField(max_length=20, unique=True)
-    taxonomic_group = models.ForeignKey(TaxonomicGroup, verbose_name="Taxonomic Group", on_delete=models.CASCADE, related_name="specie")
+    taxonomic_group = models.ForeignKey(TaxonomicGroup, verbose_name="Taxonomic Group", on_delete=models.CASCADE, related_name="group")
     primitiva_name = models.CharField(max_length=150)
     procedence = models.CharField(max_length=500)
     age = models.IntegerField()
     sex = models.IntegerField(choices=Sex.choices)
     status = models.IntegerField(choices=AnimaliaStatus.choices)
 
+    def __str__(self):
+        return f"Animal code: {self.animalia_code} -\ Taxonomic Group where belongs: {self.taxonomic_group} -\
+            Animal name: {self.primitiva_name} - Procedence: {self.procedence} - Age: {self.age} - Sex: {self.sex} - Status: {self.status}"
+
+    class Meta:
+        # db_table = 'animalia'
+        verbose_name = 'Animal'
+        verbose_name_plural = 'Animals'
+
 class AnimaliaObservation(models.Model):
-    animalia = models.ForeignKey(Animalia, verbose_name="Subject", on_delete=models.CASCADE, related_name="subject")
+    animalia = models.ForeignKey(Animalia, verbose_name="Subject", on_delete=models.CASCADE, related_name="animal_subject")
     characteristics = models.TextField()
     natural_performance = models.TextField()
     overall_size = models.FloatField()
@@ -62,12 +79,20 @@ class AnimaliaObservation(models.Model):
     symptoms = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        verbose_name = 'Animal Observation'
+        verbose_name_plural = 'Animal Observations'
+
 class AnimaliaLocations(models.Model):
     animalia = models.ForeignKey(Animalia, verbose_name="Subject", on_delete=models.CASCADE, related_name="subject")
     natural_location = models.CharField(max_length=150)
     latitude = models.FloatField()
     longitude = models.FloatField()
     date_witnessed = models.DateTimeField()
+
+    class Meta:
+        verbose_name = 'Animal Location'
+        verbose_name_plural = 'Animal Locations'
 
 class Plantae(DateRegister):
     plantae_code = models.CharField(max_length=20, unique=True)
@@ -79,11 +104,23 @@ class Plantae(DateRegister):
     size = models.FloatField()
     weight = models.FloatField()
 
+    class Meta:
+        verbose_name = 'Plant'
+        verbose_name_plural = 'Plants'
+
 class Ecosystem(models.Model):
     name = models.CharField(max_length=150)
     variations = models.IntegerField()
+
+    class Meta:
+        verbose_name = 'Ecosystem'
+        verbose_name_plural = 'Ecosystems'
 
 class EcosystemVariations(models.Model):
     main_ecosystem = models.ForeignKey(Ecosystem, verbose_name="Main ecosystem", on_delete=models.CASCADE, related_name="main")
     sub_ecosystem = models.ForeignKey(Ecosystem, verbose_name="Sub ecosystem", on_delete=models.CASCADE, related_name="sub")
     description = models.CharField(max_length=500)
+
+    class Meta:
+        verbose_name = 'Ecosystem Variation'
+        verbose_name_plural = 'Ecosystem Variations'

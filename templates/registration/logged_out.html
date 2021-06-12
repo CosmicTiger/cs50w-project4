@@ -1,0 +1,28 @@
+{% extends "base/authentication_layout.html" %}
+{% load i18n %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/logged_out.css' %}">
+{% endblock head_css %}
+
+{% block title %} Register {% endblock title %}
+
+{% block content %}
+<main class="container LoginMain text-center">
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Vuelve pronto!</h2>
+                    <a href="{% url 'login' %}" class="btn btn-primary">Inicia sesión acá.</a>
+                    <a href="/" class="btn btn-primary">Ve al sitio público.</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</main>
+{% endblock content %}

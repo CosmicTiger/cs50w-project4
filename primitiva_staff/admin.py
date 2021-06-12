@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import PrimitivaRole, Staff, PrimitivaOccupations
 
-# Register your models here.
+admin.site.register(PrimitivaRole)
+admin.site.register(Staff)
+admin.site.register(PrimitivaOccupations)

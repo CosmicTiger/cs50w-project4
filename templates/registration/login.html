@@ -1,0 +1,46 @@
+{% extends "base/authentication_layout.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock head_css %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+<main class="container LoginMain text-center">
+    {% if form.errors %}
+    <p>Tu usuario y contraseña no coinciden. Intente otra vez.</p>
+    {% endif %}
+
+    {% if next %}
+    {% if user.is_authenticated %}
+    <p>Tu cuenta no tiene acceso a esta página. Para proceder, por favor inicia sesión con una cuenta que tiene
+        acceso.</p>
+    {% else %}
+    <p>Por favor inicia sesión para ver esta página.</p>
+    {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <img class="mb-4" src="{% static 'img/primitiva-logo.png' %}" alt="Primitiva Logo" width="230" height="220" />
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
+
+        <div class="LoginMain-formGroup">
+            {% bootstrap_form form %}
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+
+            <input type="submit" value="Iniciar Sesión" class="w-100 btn btn-lg btn-primary" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+    </form>
+</main>
+{% endblock content %}

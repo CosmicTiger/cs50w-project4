@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
+from research.models import Research
 from django.utils import timezone
 
 class Category(models.Model):
@@ -7,6 +8,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
 class Post(models.Model):
 
@@ -27,11 +32,13 @@ class Post(models.Model):
     slug = models.SlugField(max_length = 250, unique_for_date = 'published')
     published = models.DateTimeField(default = timezone.now)
     author = models.ForeignKey(
-        User, on_delete = models.CASCADE, related_name = 'blog_posts'
+        settings.AUTH_USER_MODEL, on_delete = models.PROTECT, related_name = 'blog_posts'
     )
     status = models.CharField(
         max_length = 10, choices = STATUS_OPTIONS, default = 'published'
     )
+    research_details = models.ManyToManyField(Research, verbose_name="Post Details", related_name="research_to_post")
+
     objects = models.Manager() # default Manager
     post_objects = PostObjects() # custom Manager
 

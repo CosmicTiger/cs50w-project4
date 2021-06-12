@@ -8,13 +8,14 @@ class User(AbstractBaseUser, PermissionsMixin, DateRegister):
     is_active = models.BooleanField(default = True)
     is_admin = models.BooleanField(default = False)
     is_staff = models.BooleanField(default = False)
-    username = models.CharField(max_length=24)
+    email = models.EmailField(_('email address'), unique=True)
+    username = models.CharField(max_length=24, unique=True)
     about = models.TextField(_('about'), max_length=500, blank=True)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['username', 'email']
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
         return f"{self.username} - {self.email}"

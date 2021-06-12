@@ -1,0 +1,43 @@
+{% extends "base/primitiva_layout.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard-research.css' %}">
+{% endblock head_css %}
+
+{% block title %} Dashboard Programs {% endblock title %}
+
+{% block homeActive %} link-dark {% endblock homeActive %}
+{% block dashboardActive %} link-dark {% endblock dashboardActive %}
+{% block researchActive %} active {% endblock researchActive %}
+{% block plantaeActive %} link-dark {% endblock plantaeActive %}
+{% block animalsActive %} link-dark {% endblock animalsActive %}
+{% block ecosystemsActive %} link-dark {% endblock ecosystemsActive %}
+{% block staffActive %} link-dark {% endblock staffActive %}
+
+
+{% block content %}
+{% include 'research/includes/research_menu.html' %}
+<section class="container">
+    {% for program in object_list %}
+    <div class="row mt-3 mb-2 card">
+        <div class="col-md-9 mx-auto card-body">
+            <h2 class="mb-4">{{ program.name }}</h2>
+            <div>
+                <p>{{ program.description|striptags|safe|truncatechars:"200" }}</p>
+                <div class="entry-list">
+                    <a class="btn btn-secondary" href="{% url 'programs:info' program.id %}"><i class="far fa-eye"></i>
+                        Leer
+                        más</a>
+                    {% if request.user.is_staff %}
+                    <a class="btn btn-warning" href="{% url 'programs:update' program.id %}"><i class="far fa-edit"></i>
+                        Editar</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

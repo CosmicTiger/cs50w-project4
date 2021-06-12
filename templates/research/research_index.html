@@ -1,1 +1,100 @@
-// index research
+{% extends "base/primitiva_layout.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard-research.css' %}">
+{% endblock head_css %}
+
+{% block title %} Research Dashboard {% endblock title %}
+
+{% block homeActive %} link-dark {% endblock homeActive %}
+{% block dashboardActive %} link-dark {% endblock dashboardActive %}
+{% block researchActive %} active {% endblock researchActive %}
+{% block plantaeActive %} link-dark {% endblock plantaeActive %}
+{% block animalsActive %} link-dark {% endblock animalsActive %}
+{% block ecosystemsActive %} link-dark {% endblock ecosystemsActive %}
+{% block staffActive %} link-dark {% endblock staffActive %}
+
+
+{% block content %}
+<div class="Research-home container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Gestión de Investigación</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+            <a href="{% url 'programs' %}">
+                <div class="Research-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                    <div class="Research-card background d-flex flex-column h-100 p-5 pb-3 text-white">
+                        <div class="Research-card background-cover">
+                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Programas</h2>
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="me-auto">
+                                    <img src="../../static/img/Hnet.com-image.svg" alt="Primitiva" width="32"
+                                        height="32" class="rounded-circle border border-white">
+                                </li>
+                                <li class="d-flex align-items-center me-3">
+                                    <svg class="bi me-2" width="1em" height="1em">
+                                        <use xlink:href="#geo-fill" />
+                                    </svg>
+                                    <small>Toca aquí</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="#">
+                <div class="Research-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                    <div class="Research-card background d-flex flex-column h-100 p-5 pb-3 text-white">
+                        <div class="Research-card background-cover">
+                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Investigaciones</h2>
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="me-auto">
+                                    <img src="../../static/img/Hnet.com-image.svg" alt="Primitiva" width="32"
+                                        height="32" class="rounded-circle border border-white">
+                                </li>
+                                <li class="d-flex align-items-center me-3">
+                                    <svg class="bi me-2" width="1em" height="1em">
+                                        <use xlink:href="#geo-fill" />
+                                    </svg>
+                                    <small>Toca aquí</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="#">
+                <div class="Research-card card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                    <div class="Research-card background d-flex flex-column h-100 p-5 pb-3 text-white">
+                        <div class="Research-card background-cover">
+                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Observaciones</h2>
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="me-auto">
+                                    <img src="../../static/img/Hnet.com-image.svg" alt="Primitiva" width="32"
+                                        height="32" class="rounded-circle border border-white">
+                                </li>
+                                <li class="d-flex align-items-center me-3">
+                                    <svg class="bi me-2" width="1em" height="1em">
+                                        <use xlink:href="#geo-fill" />
+                                    </svg>
+                                    <small>Toca aquí</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+.About {
+    height: 100%;
+    width: 100%;
+}
+
+.About .About-introduction {
+    background-image: url(../img/nature-animals-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.About .About-introduction.message {
+    color: black;
+    background: azure;
+    margin: 260px;
+    position: relative;
+    bottom: 44px;
+    opacity: 0.9;
+}

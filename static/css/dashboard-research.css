@@ -1,0 +1,25 @@
+.Research-home {
+    color: white;
+}
+
+.Research-card {
+    height: 530px !important;
+}
+
+.Research-card .background {
+    background-image: url('../img/program-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Research-card .background-cover {
+    background: azure;
+    color: black;
+    padding-left: 20px;
+    opacity: 0.8;
+}
+
+.Research-card .background-cover h2 {
+    font-size: 1.8rem;
+}
